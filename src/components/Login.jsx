@@ -7,6 +7,8 @@ const Login = () => {
   const navigate = useNavigate();
 
   const API_URL = import.meta.env.API_URL;
+  const API_URL_DEV = import.meta.env.VITE_API_URL_DEV;
+  const API_URL_PROD = import.meta.env.VITE_API_URL_PROD; 
 
   const [form, setForm] = useState({ usuario: "", password: "" });
   const [institutions, setInstitutions] = useState([]);
@@ -25,13 +27,13 @@ const Login = () => {
 
     try {    
     // Verifica si API_URL está definido
-    if (!API_URL) {
+    if (!API_URL_PROD ) {
       console.error("API_URL no está definido. Verifica tu archivo .env.");
       setError("Error de configuración. Por favor, contacta al administrador.");
       return;
     } 
-    console.log("Api URL:", API_URL);
-    const res = await fetch(`${API_URL}/api/login`, {
+    console.log("Api URL:", API_URL_PROD);
+    const res = await fetch(`${API_URL_PROD}/api/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
@@ -62,8 +64,8 @@ const Login = () => {
     if (!institution) return;
 
     try {
-      console.log(API_URL)
-      const res = await fetch(`${API_URL}api/login/institucion/`, {
+      console.log(API_URL_PROD)
+      const res = await fetch(`${API_URL_PROD}api/login/institucion/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -97,7 +99,7 @@ const Login = () => {
           <input
             type="text"
             name="usuario"
-            placeholder="Cédula"
+            placeholder="Correo"
             value={form.usuario}
             onChange={handleChange}
             required
