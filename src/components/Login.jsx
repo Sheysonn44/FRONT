@@ -25,6 +25,7 @@ const Login = () => {
 
     try {    
     console.log("hola");
+    console.log(API_URL);
     const res = await fetch(`${API_URL}api/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
