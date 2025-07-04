@@ -17,7 +17,7 @@ const Teachers = () => {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(() => user?.paginacion);
   const navigate = useNavigate();
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.VITE_API_URL_PROD;
 
 
   // Establecer título

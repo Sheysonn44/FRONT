@@ -20,7 +20,7 @@ const TeacherGroups = () => {
   const [loading, setLoading] = useState(true);
   const [groups, setGroups] = useState([])
   const [totalPages, setTotalPages] = useState(0)
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.VITE_API_URL_PROD;
 
    const [formData, setFormData] = useState({
       nom: "",
