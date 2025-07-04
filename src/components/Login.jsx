@@ -24,8 +24,13 @@ const Login = () => {
     setError(null);
 
     try {    
-    console.log("hola");
-    console.log(API_URL);
+    // Verifica si API_URL está definido
+    if (!API_URL) {
+      console.error("API_URL no está definido. Verifica tu archivo .env.");
+      setError("Error de configuración. Por favor, contacta al administrador.");
+      return;
+    } 
+    console.log("Api URL:", API_URL);
     const res = await fetch(`${API_URL}/api/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
