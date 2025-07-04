@@ -27,7 +27,7 @@ const Teachers = () => {
 
   // Hook personalizado con paginación
   const { data: teachers, totalPages, loading, error } = usePaginatedFetch({
-    url: `${API_URL}api/teacher`,
+    url: `${API_URL}/api/teacher`,
     token,
     searchTerm,
     page,
@@ -39,7 +39,7 @@ const Teachers = () => {
     if (!confirm) return;
 
     try {
-      await fetch(`${API_URL}api/teacher/${id}`, {
+      await fetch(`${API_URL}/api/teacher/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
